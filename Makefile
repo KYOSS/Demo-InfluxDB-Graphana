@@ -7,7 +7,11 @@ getfig:
 	@curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > ./fig
 	@chmod 755 ./fig
 
-docker: docker-influxdb docker-graphana
+update-submodules:
+	@git submodule init
+	@git submodule update
+
+docker: update-submodules docker-influxdb docker-graphana
 
 docker-influxdb:
 	@docker build -t influxdb:${VERSION} --rm=true ./InfluxDB-Docker/
