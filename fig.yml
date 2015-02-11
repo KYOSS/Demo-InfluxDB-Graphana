@@ -1,0 +1,18 @@
+## See http://fig.sh/ for more information about using this file
+
+influxdb:
+  image: influxdb:0.0.1
+  ports:
+    - 8083:8083
+    - 8084:8084
+    - 8086:8086
+    - 8125:8125
+    - 8126:8126
+  volumes:
+    - /home/dphillips/Documents/Zanclus/Docker/influxdb-data:/data
+  environment:
+    PRE_CREATE_DB: graphana
+graphana:
+  image: graphana:0.0.1
+  ports:
+    - 6080:6080

@@ -1,0 +1,6 @@
+[submodule "InfluxDB-Docker"]
+	path = InfluxDB-Docker
+	url = https://github.com/KYOSS/InfluxDB-Docker.git
+[submodule "graphana-docker"]
+	path = graphana-docker
+	url = https://github.com/KYOSS/graphana-docker.git
