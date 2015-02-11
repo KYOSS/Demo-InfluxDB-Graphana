@@ -22,11 +22,11 @@ run: docker getfig
 clean: clean-influxdb clean-graphana
 
 clean-influxdb:
-	@docker ps -a | grep "influxdb.*" | awk '{print $1}' | xargs -r docker rm -f
+	@docker ps -a | grep "influxdb.*" | awk '{print $$1}' | xargs -r docker rm -f
 	@docker images | grep "influxdb.*" | sed 's@^\([^ ]*\) *\([^ ]*\) *.*@\1:\2@g' | xargs -r docker rmi
 
 clean-graphana:
-	@docker ps -a | grep "graphana.*" | awk '{print $1}' | xargs -r docker rm -f
+	@docker ps -a | grep "graphana.*" | awk '{print $$1}' | xargs -r docker rm -f
 	@docker images | grep "graphana.*" | sed 's@^\([^ ]*\) *\([^ ]*\) *.*@\1:\2@g' | xargs -r docker rmi
 
 .PHONY: docker getfig clean
